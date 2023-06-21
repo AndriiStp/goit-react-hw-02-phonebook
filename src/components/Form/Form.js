@@ -41,7 +41,7 @@ class Form extends Component {
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="name"
+            title="Name may contain only  letters, spaces, hyphens, and apostrophes are allowed"
             required
           />
         </label>
@@ -56,6 +56,8 @@ class Form extends Component {
             id={this.numberInputId}
             name="number"
             pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+            title="Valid Phone Number: Optional '+' Symbol, Digits, Spaces, Hyphens, and Parentheses"
+            required
           ></input>
         </label>
         <button className={css.submit_button} type="submit">
