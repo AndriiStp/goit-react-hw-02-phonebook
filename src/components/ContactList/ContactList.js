@@ -3,9 +3,9 @@ import css from './ContacList.module.css';
 
 const ContactList = ({ contacts, onDelete }) => {
   return (
-    <ul>
+    <ul className={css.contact__list}>
       {contacts.map(({ id, name, number }) => (
-        <li key={id}>
+        <li className={css.item} key={id}>
           {name}: {number}
           <button
             type="button"

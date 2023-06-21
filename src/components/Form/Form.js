@@ -1,3 +1,6 @@
+import React from 'react';
+import css from './Form.module.css';
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
 
@@ -5,6 +8,7 @@ class Form extends Component {
   state = {
     name: '',
     number: '',
+    id: '',
   };
 
   nameInputId = nanoid();
@@ -26,10 +30,11 @@ class Form extends Component {
   };
   render() {
     return (
-      <form onSubmit={this.handleAdd}>
-        <label htmlFor={this.nameInputId}>
+      <form className={css.form} onSubmit={this.handleAdd}>
+        <label className={css.label} htmlFor={this.nameInputId}>
           Name:
           <input
+            className={css.input}
             value={this.state.name}
             onChange={this.handleChange}
             id={this.nameInputId}
@@ -41,9 +46,10 @@ class Form extends Component {
           />
         </label>
 
-        <label htmlFor={this.numberInputId}>
+        <label className={css.label} htmlFor={this.numberInputId}>
           Tel:
           <input
+            className={css.input}
             type="tel"
             value={this.state.number}
             onChange={this.handleChange}
@@ -52,10 +58,14 @@ class Form extends Component {
             pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
           ></input>
         </label>
-        <button type="submit">Add Contact</button>
+        <button className={css.submit_button} type="submit">
+          Add Contact
+        </button>
       </form>
     );
   }
 }
+
+Form.propTypes = { onSubmitProp: PropTypes.func.isRequired };
 
 export default Form;
