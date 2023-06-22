@@ -40,7 +40,7 @@ class Form extends Component {
             id={this.nameInputId}
             type="text"
             name="name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            pattern="^[A-Za-z\u0080-\uFFFF ']+$"
             title="Name may contain only  letters, spaces, hyphens, and apostrophes are allowed"
             required
           />
